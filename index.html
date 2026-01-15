@@ -381,7 +381,7 @@
                 </div>
             </div>
             
-            <form id="loginForm" method="POST" action="paginas/dashboard.html">
+            <form id="loginForm" method="POST" action="dashboard.html">
                 <div class="form-group">
                     <label class="form-label">E-mail</label>
                     <input type="email" name="email" id="email" class="form-control" 
@@ -406,18 +406,18 @@
                 </button>
             </form>
             
-            <a href="paginas/register.html" class="btn btn-secondary">
+            <a href="register.html" class="btn btn-secondary">
                 <i class="fas fa-user-plus"></i> Criar Nova Conta
             </a>
             
             <div class="links">
                 <p>
                     Primeira vez aqui? 
-                    <a href="paginas/setup.html">Configurar o sistema</a>
+                    <a href="setup.html">Configurar o sistema</a>
                 </p>
                 <p>
                     Problemas com login? 
-                    <a href="paginas/criar_banco.html">Configurar banco de dados</a>
+                    <a href="criar_banco.html">Configurar banco de dados</a>
                 </p>
                 <p>
                     <a href="https://github.com" target="_blank">
@@ -518,7 +518,7 @@
         
         // Verificar status do sistema
         function checkSystemStatus() {
-            fetch('paginas/config.html')
+            fetch('config.html')
                 .then(response => {
                     if (!response.ok) {
                         console.log('Sistema não configurado');
@@ -537,7 +537,7 @@
             if (shouldShow) {
                 setTimeout(() => {
                     if (confirm('⚠️ O sistema parece não estar configurado!\n\nDeseja configurar agora?')) {
-                        window.location.href = 'paginas/setup.html';
+                        window.location.href = 'setup.html';
                     }
                     sessionStorage.setItem('config_alert_shown', 'true');
                 }, 1000);
@@ -556,4 +556,5 @@
         });
     </script>
 </body>
+
 </html>
