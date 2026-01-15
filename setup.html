@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração - BarberFlow</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .setup-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        .setup-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+        .setup-logo {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .setup-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .setup-steps {
+            margin: 30px 0;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #dee2e6;
+        }
+        .step.completed {
+            border-left-color: #28a745;
+            background: #f0fff4;
+        }
+        .step.active {
+            border-left-color: #4cc9f0;
+            background: #f0f8ff;
+        }
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #dee2e6;
+            color: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .step.completed .step-number {
+            background: #28a745;
+            color: white;
+        }
+        .step.active .step-number {
+            background: #4cc9f0;
+            color: white;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .step-description {
+            font-size: 12px;
+            color: #666;
+        }
+        .requirements-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .requirement-status {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .status-success { color: #28a745; }
+        .status-warning { color: #ffc107; }
+        .status-error { color: #dc3545; }
+        .setup-links {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .setup-links a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="setup-container">
+        <div class="setup-box">
+            <div class="setup-logo">
+                <i class="fas fa-cut"></i>
+                BarberFlow
+            </div>
+            <div class="setup-title">⚙️ Configuração do Sistema</div>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                Esta página irá guiá-lo na configuração inicial do BarberFlow.
+            </div>
+            
+            <div class="setup-steps">
+                <div class="step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Verificar Requisitos</div>
+                        <div class="step-description">Verificação do ambiente e dependências</div>
+                    </div>
+                    <div class="requirement-status status-success">✅</div>
+                </div>
+                
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Configurar Banco de Dados</div>
+                        <div class="step-description">Criar banco de dados e tabelas</div>
+                    </div>
+                    <div class="requirement-status status-warning">⏳</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Criar Conta Administrativa</div>
+                        <div class="step-description">Configurar primeira conta de administrador</div>
+                    </div>
+                    <div class="requirement-status">🔒</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Finalizar Configuração</div>
+                        <div class="step-description">Concluir instalação e testar sistema</div>
+                    </div>
+                    <div class="requirement-status">🎯</div>
+                </div>
+            </div>
+            
+            <div class="requirements-list">
+                <h5 style="color: #1a1a2e; margin-bottom: 15px;">
+                    <i class="fas fa-check-circle"></i>
+                    Requisitos Verificados
+                </h5>
+                
+                <div class="requirement-item">
+                    <div class="requirement-status status-success">✅</div>
+                    <div>
+                        <div style="font-weight: 500;">PHP 7.4 ou superior</div>
+                        <div style="font-size: 11px; color: #666;">Versão atual: 8.1.10</div>
+                    </div>
+                </div>
+                
+                <div class="requirement-item">
+                    <div class="requirement-status status-success">✅</div>
+                    <div>
+                        <div style="font-weight: 500;">MySQL/MariaDB</div>
+                        <div style="font-size: 11px; color: #666;">Extensão mysqli disponível</div>
+                    </div>
+                </div>
+                
+                <div class="requirement-item">
+                    <div class="requirement-status status-success">✅</div>
+                    <div>
+                        <div style="font-weight: 500;">Permissões de Arquivo</div>
+                        <div style="font-size: 11px; color: #666;">Pastas com permissão de escrita</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Atenção:</strong> A configuração do banco de dados apagará dados existentes.
+                Faça backup antes de continuar.
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary btn-lg" onclick="configureDatabase()">
+                    <i class="fas fa-database"></i> Configurar Banco de Dados
+                </button>
+                <button class="btn btn-outline btn-lg" onclick="manualConfiguration()" style="margin-left: 10px;">
+                    <i class="fas fa-terminal"></i> Configuração Manual
+                </button>
+            </div>
+            
+            <div class="setup-links mt-30">
+                <p>Precisa de ajuda? <a href="#">Consulte a documentação</a></p>
+                <p>ou <a href="../index.html">Voltar para a página inicial</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function configureDatabase() {
+            if (confirm('Deseja configurar o banco de dados agora?\n\nEsta ação criará todas as tabelas necessárias.')) {
+                alert('Configurando banco de dados...\n\nEm um sistema real, isso executaria o script de criação do banco.');
+                
+                // Simular progresso
+                const steps = document.querySelectorAll('.step');
+                steps[1].classList.remove('active');
+                steps[1].classList.add('completed');
+                steps[2].classList.add('active');
+                
+                setTimeout(() => {
+                    alert('Banco de dados configurado com sucesso!\n\nAgora crie sua conta administrativa.');
+                    
+                    // Redirecionar para registro de admin
+                    window.location.href = 'register.html?admin=true';
+                }, 2000);
+            }
+        }
+        
+        function manualConfiguration() {
+            alert('Para configuração manual:\n\n1. Crie um banco chamado "barberflow"\n2. Execute o script SQL em criar_banco.php\n3. Configure as credenciais no config.php');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resetar Sistema - BarberFlow</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reset-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        .reset-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+        .reset-icon {
+            text-align: center;
+            font-size: 64px;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        .warning-section {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-section h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .confirmation-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px dashed #dc3545;
+        }
+        .confirmation-input {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .reset-steps {
+            margin: 20px 0;
+        }
+        .reset-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .step-icon {
+            margin-right: 10px;
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+        }
+        .step-success { color: #28a745; }
+        .step-warning { color: #ffc107; }
+        .step-danger { color: #dc3545; }
+        .reset-links {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .reset-links a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-container">
+        <div class="reset-box">
+            <div class="reset-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            
+            <h2 style="color: #dc3545; text-align: center; margin-bottom: 10px;">
+                ⚠️ Resetar Sistema
+            </h2>
+            
+            <p style="color: #666; text-align: center; margin-bottom: 30px;">
+                Esta ferramenta reinicializa o sistema com dados de exemplo.
+                <strong>Use apenas para testes ou desenvolvimento.</strong>
+            </p>
+            
+            <div class="warning-section">
+                <h4><i class="fas fa-radiation"></i> ATENÇÃO: OPERAÇÃO PERIGOSA</h4>
+                <p>Esta ação irá:</p>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>Apagar todos os dados atuais</li>
+                    <li>Reinicializar o banco de dados</li>
+                    <li>Criar dados de exemplo para testes</li>
+                    <li><strong>Esta ação não pode ser desfeita!</strong></li>
+                </ul>
+            </div>
+            
+            <div class="reset-steps">
+                <h4 style="color: #1a1a2e; margin-bottom: 15px;">
+                    <i class="fas fa-list-ol"></i> O que será feito:
+                </h4>
+                
+                <div class="reset-step">
+                    <div class="step-icon step-danger">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight: 500;">1. Apagar dados atuais</div>
+                        <div style="font-size: 12px; color: #666;">Todos os agendamentos, clientes e usuários serão removidos</div>
+                    </div>
+                </div>
+                
+                <div class="reset-step">
+                    <div class="step-icon step-warning">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight: 500;">2. Reinicializar banco de dados</div>
+                        <div style="font-size: 12px; color: #666;">Tabelas serão recriadas com estrutura limpa</div>
+                    </div>
+                </div>
+                
+                <div class="reset-step">
+                    <div class="step-icon step-success">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight: 500;">3. Criar dados de exemplo</div>
+                        <div style="font-size: 12px; color: #666;">Usuários, clientes e agendamentos de teste serão criados</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="confirmation-box">
+                <div class="form-group">
+                    <label class="form-label" style="color: #dc3545;">
+                        <i class="fas fa-keyboard"></i>
+                        Digite <strong>RESETAR</strong> para confirmar:
+                    </label>
+                    <input type="text" id="confirmationInput" class="form-control confirmation-input" 
+                           placeholder="Digite RESETAR aqui" oninput="checkConfirmation()">
+                </div>
+                <p style="color: #666; font-size: 12px; margin-top: 10px; text-align: center;">
+                    Esta medida de segurança evita reset acidental
+                </p>
+            </div>
+            
+            <div class="form-check mb-20">
+                <input type="checkbox" class="form-check-input" id="backupCheck">
+                <label class="form-check-label" for="backupCheck">
+                    <i class="fas fa-save"></i> Fiz backup dos dados importantes
+                </label>
+            </div>
+            
+            <div class="form-check mb-20">
+                <input type="checkbox" class="form-check-input" id="understandCheck">
+                <label class="form-check-label" for="understandCheck">
+                    <i class="fas fa-exclamation-circle"></i> Entendo que esta ação não pode ser desfeita
+                </label>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button id="resetButton" class="btn btn-danger btn-lg" disabled onclick="performReset()">
+                    <i class="fas fa-bomb"></i> RESETAR SISTEMA
+                </button>
+                <a href="dashboard.html" class="btn btn-outline btn-lg" style="margin-left: 10px;">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+            
+            <div class="reset-links mt-30">
+                <p>Em vez de resetar, você pode:</p>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
+                    <a href="setup.html"><i class="fas fa-cogs"></i> Reconfigurar</a>
+                    <a href="criar_banco.html"><i class="fas fa-database"></i> Ver Banco</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Meu Perfil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function checkConfirmation() {
+            const input = document.getElementById('confirmationInput');
+            const button = document.getElementById('resetButton');
+            const backupCheck = document.getElementById('backupCheck');
+            const understandCheck = document.getElementById('understandCheck');
+            
+            const confirmed = input.value.toUpperCase() === 'RESETAR' && 
+                             backupCheck.checked && 
+                             understandCheck.checked;
+            
+            button.disabled = !confirmed;
+            
+            if (input.value.toUpperCase() === 'RESETAR') {
+                input.style.borderColor = '#28a745';
+                input.style.color = '#28a745';
+            } else {
+                input.style.borderColor = '#dc3545';
+                input.style.color = '#dc3545';
+            }
+        }
+        
+        function performReset() {
+            if (!confirm('🚨 CONFIRMAÇÃO FINAL!\n\nTem certeza ABSOLUTA que deseja resetar o sistema?\n\nTodos os dados serão PERDIDOS permanentemente!\n\nEsta ação NÃO PODE SER DESFEITA!')) {
+                return;
+            }
+            
+            // Mostrar loading
+            const button = document.getElementById('resetButton');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Resetando...';
+            button.disabled = true;
+            
+            // Simular processo de reset
+            setTimeout(() => {
+                // Simular sucesso
+                alert('✅ Sistema resetado com sucesso!\n\nO sistema foi reinicializado com dados de exemplo.');
+                
+                // Redirecionar para login
+                window.location.href = 'login.html?reset=success';
+            }, 3000);
+        }
+        
+        // Atualizar estado do botão quando checkboxes mudam
+        document.getElementById('backupCheck').addEventListener('change', checkConfirmation);
+        document.getElementById('understandCheck').addEventListener('change', checkConfirmation);
+        
+        // Configurar validação em tempo real
+        document.addEventListener('DOMContentLoaded', function() {
+            checkConfirmation();
+            
+            // Adicionar efeito de digitação no campo de confirmação
+            const input = document.getElementById('confirmationInput');
+            input.focus();
+        });
+    </script>
+</body>
+</html>

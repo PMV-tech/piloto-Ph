@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - BarberFlow</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .register-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        .register-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 500px;
+        }
+        .register-logo {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .register-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .register-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .register-links {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .register-links a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+        }
+        .terms-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        .terms-box h5 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .terms-box p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-box">
+            <div class="register-logo">
+                <i class="fas fa-cut"></i>
+                BarberFlow
+            </div>
+            <div class="register-subtitle">Crie sua conta e gerencie sua barbearia</div>
+            <div class="register-title">📝 Criar Nova Conta</div>
+            
+            <form id="registerForm">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-label">Nome *</label>
+                            <input type="text" class="form-control" placeholder="Seu nome" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-label">Sobrenome *</label>
+                            <input type="text" class="form-control" placeholder="Seu sobrenome" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">E-mail *</label>
+                    <input type="email" class="form-control" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-label">Senha *</label>
+                            <div class="password-container">
+                                <input type="password" id="password" class="form-control" 
+                                       placeholder="Mínimo 8 caracteres" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-label">Confirmar Senha *</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" class="form-control" 
+                                       placeholder="Repita a senha" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" placeholder="(11) 99999-9999">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Tipo de Conta</label>
+                    <select class="form-control">
+                        <option value="cliente">Cliente</option>
+                        <option value="barbeiro">Barbeiro</option>
+                    </select>
+                    <small class="form-text">Clientes podem agendar serviços. Barbeiros podem aceitar agendamentos.</small>
+                </div>
+                
+                <div class="terms-box">
+                    <h5><i class="fas fa-file-contract"></i> Termos de Uso</h5>
+                    <p>Ao criar uma conta no BarberFlow, você concorda com nossos termos de uso. Seus dados serão usados apenas para funcionalidades do sistema. Não compartilhamos seus dados com terceiros.</p>
+                    <p>Você é responsável por manter sua senha segura e por todas as atividades na sua conta.</p>
+                </div>
+                
+                <div class="form-check mb-20">
+                    <input type="checkbox" class="form-check-input" id="terms" required>
+                    <label class="form-check-label" for="terms">
+                        Concordo com os Termos de Uso e Política de Privacidade
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i>
+                    Criar Conta
+                </button>
+            </form>
+            
+            <div class="register-links">
+                <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+                <p><a href="../index.html"><i class="fas fa-home"></i> Voltar para Home</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.parentElement.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem. Digite novamente.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('A senha deve ter pelo menos 8 caracteres.');
+                return;
+            }
+            
+            if (!document.getElementById('terms').checked) {
+                alert('Você deve aceitar os Termos de Uso para criar uma conta.');
+                return;
+            }
+            
+            alert('Conta criada com sucesso! Redirecionando para login...');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
